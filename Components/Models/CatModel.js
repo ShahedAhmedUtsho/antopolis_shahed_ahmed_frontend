@@ -4,7 +4,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 
 const CatModel = () => {
-    const { selectedFile, setSelectedFile, api, catModel, setCatModel, animalModel, setAnimalModel, animal } = useProvider();
+    const { selectedFile, setSelectedFile, api, catModel, setCatModel, animalModel, cateFetch, setAnimalModel, animal } = useProvider();
     const [loading, setLoading] = useState(false)
 
 
@@ -15,6 +15,7 @@ const CatModel = () => {
         setLoading(true)
         try {
             const res = await axios.post(`${api}/categories`, { name })
+            cateFetch()
 
 
         } catch (error) {

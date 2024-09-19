@@ -2,16 +2,16 @@ import useProvider from '@/Hooks/useProvider';
 import React from 'react';
 
 const NavSection = () => {
-    const { selectedFile, setSelectedFile, catModel, setCatModel, animalModel, setAnimalModel, animal } = useProvider()
+    const { selectedFile, setSelectedFile, catModel, setCatModel, animalModel, setAnimalModel, categories } = useProvider()
     return (
         <section className=" min-h-28 flex justify-between  items-center">
             <aside className="left flex gap-5 ">
                 {
-                    animal.map((item, index) => {
+                    categories.map((item, index) => {
 
                         return (
-                            <span key={index} className={`inline-block transition-all duration-100 ease-linear ${item === "land animal" && '  !text-green-500 hover:!bg-green-500/20 '} cursor-pointer hover:bg-red-500/20  text-red-500 rounded-full py-3 px-8 border-2 border-current capitalize`}  >
-                                {item}
+                            <span key={index} className={`inline-block transition-all duration-100 ease-linear ${item.name === "land animal" && '  !text-green-500 hover:!bg-green-500/20 '} cursor-pointer hover:bg-red-500/20  text-red-500 rounded-full py-3 px-8 border-2 border-current capitalize`}  >
+                                {item.name}
 
                             </span>
                         )
